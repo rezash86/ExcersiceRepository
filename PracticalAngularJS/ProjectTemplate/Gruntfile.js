@@ -18,8 +18,8 @@ module.exports = function(grunt) {
 		
         bower: {
 		    dev: {
-                dest: './webapp/lib',
-                css_dest: './webapp/lib',
+                dest: './app/lib',
+                css_dest: './app/lib',
                 options: {
                     expand: true,
                     packageSpecific: {
