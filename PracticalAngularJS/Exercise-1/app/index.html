@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Exercise 1</title>
+        <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+        <link href="styles/main.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        
+        <div ng-app="myApp" ng-controller="UserListCtrl">
+            <table class="table table-bordered data-table sort display">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Group</th>	
+                    </tr>
+                </thead>
+                <tbody ng-repeat="user in users | orderBy:order:reverse">
+                    <tr ng-class-odd="'light-gray'" ng-class-even="'dark-gray'">
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.group}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="lib/angular/angular.js"></script>
+        
+        <script src="scripts/controllers/userController.js"></script>
+    </body>
+    
+</html>
