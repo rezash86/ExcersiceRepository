@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>Exercise 5</title>
+        <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+        <link href="styles/main.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        
+        <div ng-app="myApp" ng-controller="UserListCtrl">
+            
+            <user-pagination rows-per-page="10" current-page="1" total-rows="userdata.length" on-select-page="onPageSelected(currentPage, rowsPerPage)"></user-pagination>
+            
+            <table class="table table-bordered data-table sort display">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Group</th>	
+                    </tr>
+                </thead>
+                <tbody ng-repeat="user in users | orderBy:order:reverse" ng-switch on="isSelected(user)">
+                    <tr ng-switch-default ng-class-odd="'light-gray'" ng-class-even="'dark-gray'">
+						<td ng-click="selectUser(user)"><i class="glyphicon glyphicon-plus"></i></td>
+						<td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.group}}</td>
+					</tr>
+					<tr ng-switch-when="true" ng-class-odd="'light-gray'" ng-class-even="'dark-gray'">
+						<td ng-click="unselectUser()"><i class="glyphicon glyphicon-minus"></i></td>
+						<td colspan="4">
+							<div class="panel panel-default">
+							  <div class="panel-heading">
+							    	<h3 class="panel-title"><strong>Edit User</strong></h3>
+							  </div>
+							  <div class="panel-body" ng-controller="UserCtrl">
+							    	<form name="userForm" novalidate role="form"> 
+                                          <div id="message" ng-class="{'alert alert-success':(!error), 'alert alert-danger':(error)}" ng-show="message" ng-bind="message"></div>
+                                          <div class="form-group">
+                                            <label class="control-label" for="roomName">Name</label>
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter user name" ng-model="user.name" ng-trim="true" required>
+                                            <span class="label label-danger" ng-show="userForm.name.$error.required">Required!</span>
+                                          </div>
+
+                                          <div class="form-group">
+                                            <label class="control-label" for="roomLocation">Email</label>
+                                            <input type="text" class="form-control" id="email" name="email" placeholder="Enter user email" ng-model="user.email" ng-trim="true" required>
+                                            <span class="label label-danger" ng-show="userForm.email.$error.required">Required!</span>
+                                          </div>
+
+                                          <div class="form-group">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" ng-model="user.group"> Is this a group user? {{user.group?'Yes':'No'}}
+                                                </label>
+                                            </div>
+                                          </div>
+                                        
+                                          <div class="form-group">  
+                                                
+                                              <button class="btn btn-info" ng-click="saveUser( user )">Update User</button>
+                                              
+                                          </div>
+                                    </form>
+							     </div>
+							</div>				
+						</td>
+					</tr>
+                </tbody>
+            </table>
+        </div>
+        <script src="lib/jquery/dist/jquery.js"></script>
+        <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="lib/angular/angular.js"></script>
+        <script src="scripts/services/userService.js"></script>
+        <script src="scripts/controllers/userController.js"></script>
+        <script src="scripts/directives/userPagination.js"></script>
+    </body>
+    
+</html>
