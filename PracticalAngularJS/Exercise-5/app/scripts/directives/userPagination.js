@@ -46,6 +46,10 @@ angular.module('myApp.directive', [])
                               "rowsPerPage": scope.rowsPerPage});
       };
 
+      scope.isCurrent = function(page) {
+        return scope.currentPage === page;
+      };
+        
       scope.gotoPrevious = function() {
         if ( scope.prevAvailable() ) {
           scope.selectPage(scope.currentPage-1);
