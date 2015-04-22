@@ -5,12 +5,12 @@
 describe('myApp test', function() {
 
     beforeEach(module('myApp'));
+    beforeEach(module('myApp.service'));
+    beforeEach(module('templates'));
     
     describe('UserListCtrl tests', function() {
         var scope, userListCtrl, userService;
-
-        beforeEach(module('myApp.service'));
-
+        
         beforeEach(inject( function($rootScope, $controller, UserService, $q){
             scope = $rootScope.$new();
             
@@ -30,7 +30,7 @@ describe('myApp test', function() {
             });
         }));
 
-        it('should do remote call on listUsers() during initialization.', function() {
+        it('should do remote call on listUsers().', function() {
             userListCtrl();
             
             expect(userService.listUsers).toHaveBeenCalled();
@@ -73,4 +73,53 @@ describe('myApp test', function() {
         });
     });
     
+    describe('UserCtrl tests', function() {
+        var scope, userCtrl, userService, userForm;
+
+        beforeEach(inject( function($rootScope, $templateCache, $compile, $controller, UserService, $q){
+            scope = $rootScope.$new();
+            
+            userCtrl = function() {
+                return $controller('UserCtrl', {
+                    '$scope': scope
+                });
+            };
+            
+            userService = UserService;
+            spyOn(userService, "updateUser").and.callFake(function() {
+                var deferred = $q.defer();
+                deferred.resolve('Remote call result');
+                return deferred.promise;
+            });
+            
+            var templateHtml = $templateCache.get('unit/userFormTemplate.tpl.html');
+            var formElem = angular.element("<div>" + templateHtml + "</div>");
+            $compile(formElem)(scope);
+            
+            userForm = scope.userForm;
+            scope.$apply();
+        }));
+
+        it('should do remote call on updateUser() when $scope.saveUser() is called.', function() {
+            userCtrl();
+            
+            userForm.name.$setViewValue('John');
+            userForm.email.$setViewValue('A@B.COM');
+            
+            scope.saveUser({id:111, name: 'John Doe'});
+            
+            expect(userService.updateUser).toHaveBeenCalled();           
+        });
+    
+        it('should NOT call on updateUser() if required fields are empty when $scope.saveUser() is called.', function() {
+            userCtrl();
+            
+            userForm.name.$setViewValue('John');
+            //userForm.email.$setViewValue('A@B.COM');
+            
+            scope.saveUser({id:111, name: 'John Doe'});
+            
+            expect(userService.updateUser).not.toHaveBeenCalled();         
+        });
+    });
 });

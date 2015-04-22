@@ -16,6 +16,29 @@ module.exports = function(grunt) {
  
 		pkg: grunt.file.readJSON('package.json'),
 		
+        html2js: {
+            options: {
+                base: 'test',
+                module: 'templates',
+                singleModule: true,
+                useStrict: true,
+                htmlmin: {
+                  collapseBooleanAttributes: true,
+                  collapseWhitespace: true,
+                  removeAttributeQuotes: true,
+                  removeComments: true,
+                  removeEmptyAttributes: true,
+                  removeRedundantAttributes: true,
+                  removeScriptTypeAttributes: true,
+                  removeStyleLinkTypeAttributes: true
+                }
+            },
+            main: {
+                src: ['test/unit/**/*.html'],
+                dest: 'test/unit/templates.js'
+            }
+        },
+        
         bower: {
 		    dev: {
                 dest: './app/lib',
@@ -45,8 +68,9 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-karma');
 	grunt.loadNpmTasks('grunt-bower');
+    grunt.loadNpmTasks('grunt-html2js');
     
 	// Default task.
-	grunt.registerTask('default', ['karma']);
+	grunt.registerTask('test', ['html2js:main', 'karma']);
     
 };

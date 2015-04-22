@@ -1,0 +1,28 @@
+<form name="userForm" novalidate role="form"> 
+    <div id="message" ng-class="{'alert alert-success':(!error), 'alert alert-danger':(error)}" ng-show="message" ng-bind="message"></div>
+    <div class="form-group">
+        <label class="control-label" for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter user name" ng-model="user.name" ng-trim="true" required>
+        <span class="label label-danger" ng-show="userForm.name.$error.required">Required!</span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" for="email">Email</label>
+        <input type="text" class="form-control" id="email" name="email" placeholder="Enter user email" ng-model="user.email" ng-trim="true" required>
+        <span class="label label-danger" ng-show="userForm.email.$error.required">Required!</span>
+    </div>
+
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="user.group"> Is this a group user? {{user.group?'Yes':'No'}}
+            </label>
+        </div>
+    </div>
+                                        
+    <div class="form-group">  
+                                                
+        <button class="btn btn-info" ng-click="saveUser( user )">Update User</button>
+                                              
+    </div>
+</form>
