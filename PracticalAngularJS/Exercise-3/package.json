@@ -5,8 +5,9 @@
   "repository": "https://github.com/coder-weiru/CoderConf-2015/PracticalAngularJS/Exercise-3",
   "license": "MIT",
   "devDependencies": {
-    "bower": "^1.4.1",
     "grunt": "~0.4.5",
+    "karma": "^0.12.31",  
+    "bower": "^1.4.1",
     "grunt-bower": "^0.18.0",
     "grunt-bower-task": "^0.4.0",
     "grunt-karma": "~0.8.3",
