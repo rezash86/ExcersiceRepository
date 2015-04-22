@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Exercise 6</title>
+        <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+        <link href="lib/angular-ui-grid/ui-grid.css" rel="stylesheet">
+        <link href="styles/main.css" rel="stylesheet">
+    </head>
+    
+    <body ng-app="myApp">
+        
+        <div ng-controller="UserListCtrl">
+            <div id="userlist" ui-grid="gridOptions" ui-grid-selection class="grid"></div>
+        </div>
+        
+        <script src="lib/jquery/dist/jquery.js"></script>
+        <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="lib/angular/angular.js"></script>
+        <script src="lib/angular-ui-grid/ui-grid.js"></script>
+        <script src="scripts/services/userService.js"></script>
+        <script src="scripts/controllers/userController.js"></script>
+    </body>
+    
+</html>

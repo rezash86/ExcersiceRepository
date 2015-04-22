@@ -26,7 +26,8 @@ module.exports = function(grunt) {
                         bootstrap: {
                           files: [
                             "dist/fonts/glyphicons-halflings-regular.*",
-                            "dist/css/*.*"  
+                            "dist/css/*.*",
+                            "dist/js/*.*" 
                           ]
                         }
                     }
