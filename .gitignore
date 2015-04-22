@@ -45,3 +45,4 @@ Temporary Items
 # Project specific
 /**/node_modules
 /**/bower_components
+*.log
