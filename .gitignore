@@ -46,3 +46,8 @@ Temporary Items
 /**/node_modules
 /**/bower_components
 *.log
+*.log
+
+PracticalAngularJS/Exercise-1/npm-debug.log
+
+*.log

@@ -18,7 +18,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        'app/lib/**/*.js',
+        'app/lib/angular/angular.js',
+        'app/lib/angular-mocks/angular-mocks.js',
         'app/scripts/**/*.js',
         'test/unit/**/*.js'
     ],
@@ -50,7 +51,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: true,
+    singleRun: false,
 
     colors: true,
 
@@ -59,10 +60,11 @@ module.exports = function(config) {
     logLevel: config.LOG_INFO,
 
     // Uncomment the following lines if you are using grunt's server to run the tests
-    // proxies: {
-    //   '/': 'http://localhost:9000/'
-    // },
+    proxies: {
+       '/': 'http://localhost:9000/'
+     },
     // URL root prevent conflicts with the site root
-    // urlRoot: '_karma_'
+    urlRoot: '_karma_'
+      
   });
 };
