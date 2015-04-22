@@ -1,8 +1,8 @@
 {
-  "name": "Exercise-1",
+  "name": "Practical Angular JS Exercise",
   "version": "1.0.0",
-  "description": "Coder Conference 2015 - Practical Angular JS (Exercise 1)",
-  "repository": "https://github.com/coder-weiru/CoderConf-2015/PracticalAngularJS/Exercise-1",
+  "description": "Coder Conference 2015 - Practical Angular JS Exercise",
+  "repository": "https://github.com/coder-weiru/CoderConf-2015/PracticalAngularJS/Exercise-3",
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.4.1",

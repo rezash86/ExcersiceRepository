@@ -1,12 +1,12 @@
 {
-  "name": "Exercise-1",
+  "name": "Practical Angular JS Exercise",
   "version": "1.0.0",
-  "description": "Coder Conference 2015 - Practical Angular JS (Exercise 1)",
-  "repository": "https://github.com/coder-weiru/CoderConf-2015/PracticalAngularJS/Exercise-1",
+  "description": "Coder Conference 2015 - Practical Angular JS Exercise",
+  "repository": "https://github.com/coder-weiru/CoderConf-2015/PracticalAngularJS/Exercise-6",
   "license": "MIT",
   "devDependencies": {
-    "bower": "^1.4.1",
     "grunt": "~0.4.5",
+    "bower": "^1.4.1",
     "grunt-bower": "^0.18.0",
     "grunt-bower-task": "^0.4.0",
     "grunt-karma": "~0.8.3",

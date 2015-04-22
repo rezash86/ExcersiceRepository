@@ -1,11 +1,11 @@
 {
-  "name": "Exercise-1",
+  "name": "Practical Angular JS Exercise",
   "version": "1.0.0",
   "homepage": "",
   "authors": [
     ""
   ],
-  "description": "Coder Conference 2015 - Practical Angular JS (Exercise 1)",
+  "description": "Coder Conference 2015 - Practical Angular JS Exercise",
   "license": "MIT",
   "private": true,
   "ignore": [
