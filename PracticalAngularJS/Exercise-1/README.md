@@ -4,8 +4,6 @@ In this exercise, we will build a user list using static data. We will learn the
 
 ## Build & development
 
-### STEPS
-
 1. Create a new work folder and copy all files from ProjectTemplate to this work folder. This sets up initial project layout. 
 
 2. npm install
