@@ -34,7 +34,7 @@ Exercise-4 is built on top of Exercise-3. In this exercise, we will add logic to
     
 3. modify karma.conf.js to add karma-ng-html2js-preprocessor
 
-4. add UserCtrl test suites in userControllerSpec.js to user update logic
+4. add UserCtrl test suites in userControllerSpec.js to test user update logic
 
     add userFormTemplate.tpl.html form template file, add service mock for updateUser, add form mocking logic using userFormTemplate, add two test cases
 
