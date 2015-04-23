@@ -28,4 +28,4 @@ Exercise-5 is built on top of Exercise-4. In this exercise, we will build a cust
 
 ## Testing
 
-Run 'grunt karma'
+Run 'grunt test'

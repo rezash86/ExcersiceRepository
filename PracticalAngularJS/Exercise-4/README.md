@@ -40,4 +40,4 @@ Exercise-4 is built on top of Exercise-3. In this exercise, we will add logic to
 
 ## Testing
 
-Run 'grunt karma'
+Run 'grunt test'
