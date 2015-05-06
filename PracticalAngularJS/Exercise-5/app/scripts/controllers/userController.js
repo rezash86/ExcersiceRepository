@@ -27,7 +27,7 @@ myApp.controller('UserListCtrl', function($scope, $log, UserService) {
 	};
     
     $scope.onPageSelected = function(currentPage, rowsPerPage) {
-		$scope.users = $scope.userdata.slice((currentPage - 1)*rowsPerPage+1, (currentPage)*rowsPerPage);
+		$scope.users = $scope.userdata.slice((currentPage - 1)*rowsPerPage, (currentPage)*rowsPerPage);
 	};
 });
 
